@@ -22,5 +22,25 @@ int CountOfShorts (string[] array)
 
 string arrayOfShorts(string[] array, int count)
 {
-    
+    int countOfel = 0;
+    string[] finalArray = new string[count];
+    foreach(string el in array)
+    {
+        if (el.Length <=3)
+        {
+            finalArray[countOfel] = el;
+            countOfel ++;
+        }
+    }
+    return finalArray;
 }
+
+
+Console.WriteLine("Введите количество строк в массиве: ");
+int StringQuantity = int.Parse(Console.ReadLine());
+
+string[] array = InitArray(StringQuantity);
+int ShortStringQuantity = CountOfShorts(array);
+string[] resultArray = arrayOfShorts(array);
+
+Console.WriteLine("{0}", String.Join(" ", array));
