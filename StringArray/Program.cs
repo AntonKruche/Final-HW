@@ -18,9 +18,10 @@ int CountOfShorts (string[] array)
             count ++;
         }
     }
+    return count;
 }
 
-string arrayOfShorts(string[] array, int count)
+string[] arrayOfShorts(string[] array, int count)
 {
     int countOfel = 0;
     string[] finalArray = new string[count];
@@ -41,6 +42,6 @@ int StringQuantity = int.Parse(Console.ReadLine());
 
 string[] array = InitArray(StringQuantity);
 int ShortStringQuantity = CountOfShorts(array);
-string[] resultArray = arrayOfShorts(array);
+string[] resultArray = arrayOfShorts(array, ShortStringQuantity);
 
-Console.WriteLine("{0}", String.Join(" ", array));
+Console.WriteLine("{0}", String.Join(" ", resultArray));
