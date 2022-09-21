@@ -3,45 +3,41 @@
     string[] StringArray = new string[countOfWords];
     for(int i = 0; i < countOfWords; i ++)
     {
+        Console.WriteLine("Введите слово:");
         StringArray[i] = Console.ReadLine();
     }
     return StringArray;
 }
 
-int CountOfShorts (string[] array)
+string[] RemoveLongWords (string[] array)
 {
     int count = 0;
-    for(int i = 0; i < array.Length; i ++)
+    foreach(string el in array)
     {
-        if(array[i].Length <= 3)
+        if(el.Length <= 3)
         {
             count ++;
         }
     }
-    return count;
-}
-
-string[] arrayOfShorts(string[] array, int count)
-{
     int countOfel = 0;
-    string[] finalArray = new string[count];
+    string[] resultArray = new string[count];
     foreach(string el in array)
     {
-        if (el.Length <=3)
+        if(el.Length <= 3)
         {
-            finalArray[countOfel] = el;
-            countOfel ++;
+            resultArray[countOfel] = el;
+            countOfel++;
         }
     }
-    return finalArray;
+    return resultArray;
 }
+
 
 
 Console.WriteLine("Введите количество строк в массиве: ");
 int StringQuantity = int.Parse(Console.ReadLine());
 
-string[] array = InitArray(StringQuantity);
-int ShortStringQuantity = CountOfShorts(array);
-string[] resultArray = arrayOfShorts(array, ShortStringQuantity);
-
-Console.WriteLine("{0}", String.Join(" ", resultArray));
+string[] StringArray = RemoveLongWords(InitArray(StringQuantity));
+Console.Write("['");
+Console.Write("{0}" ,String.Join("', '", StringArray));
+Console.Write("']");
